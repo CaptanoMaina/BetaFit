@@ -1,0 +1,16 @@
+{
+  "name": "betafit",
+  "version": "1.0.0",
+  "description": "A personal workout planner",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "margaret maina",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mustache-express": "^1.3.2",
+    "nedb": "^1.8.0"
+  }
+}
