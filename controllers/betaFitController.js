@@ -1,5 +1,7 @@
+const BetaFit = require('../models/betaFitModel');
 const betaFitDAO = require('../models/betaFitModel');
-const db =  new betaFitDAO();
+const db =  new betaFitDAO('betaFit.db');
+db.init();
 
 exports.dashboard_display = function(req, res){
     res.send('<h1> Your Accomplishments</h1>');
@@ -7,8 +9,16 @@ exports.dashboard_display = function(req, res){
 }
 
 exports.training_display = function(req, res){
-    res.send('<h1> Your Training Information</h1>');
-    db.getAllWorkouts();
+    db.getAllWorkouts().then((list) => {
+        res.render('betaFit', {
+            'title' : 'BetaFit Workouts',
+            'trainings': list
+        });
+        console.log('Promise resolved');
+        
+    }).catch((err) => {
+        console.log('promise rejected', err);
+    });
 }
 
 exports.enter_goal = function(req, res){
@@ -17,9 +27,15 @@ exports.enter_goal = function(req, res){
 }
 
 exports.landing_page = function(req, res){
-    res.send('<h1> Welcome to BetaFit</h1>');
-    res.render('dashboard', {
-        'title': 'BetaFit Workouts'
+    db.getAllWorkouts().then((list) => {
+        res.render('betaFit', {
+            'title' : 'BetaFit Members',
+            'profiles': list
+        });
+        console.log('Promise resolved');
+        
+    }).catch((err) => {
+        console.log('promise rejected', err);
     });
     
 }

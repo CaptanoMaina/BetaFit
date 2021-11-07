@@ -10,7 +10,7 @@ const nedb = require('nedb');
 const app = express();
 
 const public = path.join(__dirname, 'public');
-console.log('public is:', 'public');
+
 app.use(express.static('public'))
 
 app.engine('mustache',mustache());
@@ -26,7 +26,6 @@ app.listen(3000,() => {
 })
 
 
-/*
-const db = new nedb({ filename: 'betaFit.db' , autoload: true });
-console.log('db created');
-*/
+
+//const db = new nedb({ filename: 'betaFit.db' , autoload: true });
+//console.log('db created');
