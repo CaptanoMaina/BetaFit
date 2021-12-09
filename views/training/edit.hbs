@@ -1,0 +1,64 @@
+
+
+<h3>Edit Training Goal</h3>
+<div class="row">
+   <form action="/trainings/{{training._id}}" method="POST" class="col s12">
+      <input type="hidden" name="_method" value="PUT">
+      <div class="input-field col s12">
+         <input type="text" id="title" name="title" value="{{training.cwTitle}}">
+         <label for="title">training</label>
+      </div>
+      <div class="input-field col s12">
+         <select id="difficulty" name="difficulty">
+            {{#select training.difficulty}}
+            <option value="Level 1" selected>Beginner</option>
+            <option value="Level 1">Beginner</option>
+            <option value="Level 2">Advanced</option>
+            <option value="Level 3">Expert</option>
+            <option value="Level 4">Insane</option>
+            {{/select}}
+         </select>
+         <label for="difficulty">Workout Level</label>
+      </div>
+      <div class="input-field col s4">
+         <input type="text" id="milestones" name="milestones" value="{{training.milestones.[0]}}">
+         <label for="milestones">Milestone 1</label>
+      </div>
+      <div class="input-field col s4">
+         <input type="text" id="milestones" name="milestones" value="{{training.milestones.[1]}}">
+         <label for="milestones">Milestone 2</label>
+      </div>
+      <div class="input-field col s4">
+         <input type="text" id="milestones" name="milestones" value="{{training.milestones.[2]}}">
+         <label for="milestones">Milestone 3</label>
+      </div>
+      <div class="input-field col s4">
+         <input type="date" id="startDate" name="startDate" placeholder="" value="{{formatDate training.startDate 'YYYY-MM-DD'}}">
+         <label for="startDate">Start Date</label>
+      </div>
+      <div class="input-field col s4">
+         <input type="date" id="targetDeadline" name="targetDeadline" placeholder="" value="{{formatDate training.targetDeadline 'YYYY-MM-DD'}}">
+         <label for="targetDeadline">Target Deadline</label>
+      </div>
+      <div class="input-field col s4">
+         <input type="date" id="actualDeadline" name="actualDeadline" placeholder="" value="{{formatDate training.actualDeadline 'YYYY-MM-DD'}}">
+         <label for="actualDeadline">Actual Deadline</label>
+      </div>
+      <div class="input-field col s12">
+         <select id="trainingStatus" name="trainingStatus">
+            {{#select training.trainingStatus}}
+            <option value="Active">Active</option>
+            <option value="Completed">Completed</option>
+            {{/select}}
+         </select>
+         <label for="trainingStatus">Training Status</label>
+      </div>
+      <div class="row col s12">
+         <input type="submit" value="Save" class="btn teal">
+         <a href="/dashboard" class="btn grey lighten-1">Cancel</a>
+      </div>
+   </form>
+</div>
+</div>
+</div>
+

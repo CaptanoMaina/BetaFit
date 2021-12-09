@@ -1,0 +1,74 @@
+
+
+<div class="row">
+   <div class="col s12 m8">
+      <h3>{{training.trainingGoal}}
+         <small>{{{editIcon training.user user training._id false}}}</small>
+      </h3>
+      <h6><b id="result">Progress: </b></h6>
+      <div class="card training">
+         <div class="card-content">
+            <span class="card-title">
+               <h6><b>Workout:</b> {{training.workoutName}}</h6>
+            </span>
+            <span class="card-title">
+               <h6><b>Difficulty:</b> {{training.difficulty}}</h6>
+            </span>
+            <form action="#">
+               <h6><b>Milestones:</b></h6>
+               {{#if training.milestones.[1]}}
+               {{#each training.milestones}}
+               <p>
+                  <label>
+                  <input type="checkbox" name="milestones"/>
+                  <span>{{this}}</span>
+                  </label>
+               </p>
+               {{/each}}
+               {{/if}}
+
+            </form>
+            <span class="card-title">
+               <h6><b>Start Date:</b> {{formatDate training.startDate 'DD-MM-YYYY'}}</h6>
+            </span>
+            <span class="card-title">
+               <h6><b>Target Deadline:</b> {{formatDate training.targetDeadline 'DD-MM-YYYY'}}</h6>
+            </span>
+            <span class="card-title">
+               <h6><b>Actual Deadline:</b> {{formatDate training.actualDeadline 'DD-MM-YYYY'}}</h6>
+            </span>
+         </div>
+      </div>
+      <input type="text" id="myInput" name="search" value="localhost:3000/trainings/edit/{{training._id}}">
+      <label for="workoutName"></label>
+      <input type="submit" value="Share" class="btn" onclick="myFunction()">
+      <script>
+         showChecked();
+         function showChecked(){
+         document.getElementById("result").textContent = "Progress: " + document.querySelectorAll("input:checked").length + "/" + document.querySelectorAll("input[name=milestones]").length;
+         }
+         document.querySelectorAll("input[name=milestones]").forEach(i=>{
+         i.onclick = function(){
+         showChecked();
+         }
+         });
+      </script>
+      <script>
+         function myFunction() {
+         /* Get the text field */
+         var copyText = document.getElementById("myInput");
+         
+         /* Select the text field */
+         copyText.select();
+         copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+         
+         /* Copy the text inside the text field */
+         document.execCommand("copy");
+         
+         /* Alert the copied text */
+         alert("Copied the text: " + copyText.value);
+         }
+      </script>
+   </div>
+</div>
+

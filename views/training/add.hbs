@@ -1,0 +1,62 @@
+
+
+<h3>Add Training Goal</h3>
+<div class="row">
+   <form action="/training" method="POST" class="col s12">
+      <div class="row">
+         <div class="input-field col s12">
+            <input type="text" id="trainingGoal" name="trainingGoal">
+            <label for="trainingGoal">Training Goal</label>
+         </div>
+         <div class="input-field col s12">
+            <input type="text" id="workoutName" name="workoutName">
+            <label for="workoutName">Workout Name</label>
+         </div>
+         <div class="input-field col s12">
+            <select id="difficulty" name="difficulty">
+               <option value="Beginner">Beginner</option>
+               <option value="Advanced">Advanced</option>
+               <option value="Expert">Expert</option>
+               <option value="Insane">Insane</option>
+            </select>
+            <label for="difficulty">Workout Difficulty</label>
+         </div>
+         <div class="input-field col s4">
+            <input type="text" id="milestones" name="milestones">
+            <label for="milestones">Milestone 1</label>
+         </div>
+         <div class="input-field col s4">
+            <input type="text" id="milestones" name="milestones">
+            <label for="milestones">Milestone 2</label>
+         </div>
+         <div class="input-field col s4">
+            <input type="text" id="milestones" name="milestones">
+            <label for="milestones">Milestone 3</label>
+         </div>
+         <div class="input-field col s4">
+            <input type="date" id="startDate" name="startDate" placeholder="">
+            <label for="startDate">Start Date</label>
+         </div>
+         <div class="input-field col s4">
+            <input type="date" id="targetDeadline" name="targetDeadline" placeholder="">
+            <label for="targetDeadline">Target Deadline</label>
+         </div>
+         <div class="input-field col s4">
+            <input type="date" id="actualDeadline" name="actualDeadline" placeholder="">
+            <label for="actualDeadline">Actual Deadline</label>
+         </div>
+         <div class="input-field col s12">
+            <select id="trainingStatus" name="trainingStatus">
+               <option value="Incomplete">Incomplete</option>
+               <option value="Completed">Completed</option>
+            </select>
+            <label for="trainingStatus">Training Status</label>
+         </div>
+      </div>
+      <div class="row col sm9">
+         <input type="submit" value="Save" class="btn teal">
+         <a href="/dashboard" class="btn grey lighten-1">Cancel</a>
+      </div>
+   </form>
+</div>
+
