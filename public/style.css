@@ -1,0 +1,30 @@
+p {
+  margin: 5px 0 !important;
+}
+
+.login-container {
+  width: 600px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.nav-wrapper {
+  margin-left: 25px;
+}
+
+.striped a {
+  color: purple;
+}
+
+.fa-small {
+  font-size: 16px !important;
+}
+
+.btn-float {
+  float: left;
+  margin-right: 10px;
+}
+
+.img-small {
+  width: 180px;
+}

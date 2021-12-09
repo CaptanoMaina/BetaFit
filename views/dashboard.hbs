@@ -5,7 +5,7 @@
 <table class="striped">
    <thead>
       <div class="row col sm5">
-         <a href="/active" class="btn teal">Active trainings</a>
+         <a href="/active" class="btn purple">Active trainings</a>
       </div>
       <tr>
          <th>Training</th>
@@ -23,14 +23,14 @@
          <td>{{formatDate actualDeadline 'MMMM Do, h:mm a'}}</td>
          <td><span class="dash-mod">{{modName}}</span></td>
          <td>
-            <a href="/trainings/edit/{{_id}}" class="waves-effect waves-teal btn-flat">
+            <a href="/trainings/edit/{{_id}}" class="waves-effect waves-purple btn-flat">
             <i class="tiny material-icons">edit</i>
             </a>
          </td>
          <td>
             <form action="/trainings/{{_id}}" method="POST" id="delete-form">
                <input type="hidden" name="_method" value="DELETE">
-               <button type="submit" class="waves-effect waves-teal btn-flat">
+               <button type="submit" class="waves-effect waves-purple btn-flat">
                <i class="tiny material-icons">delete</i>
                </button>
             </form>
