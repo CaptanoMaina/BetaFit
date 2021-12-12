@@ -5,10 +5,11 @@
 <table class="striped">
    <thead>
       <div class="row col sm5">
-         <a href="/active" class="btn purple">Active training Goals</a>
+         <a href="/weekly" class="btn purple">Weekly Training Goals</a>
       </div>
       <tr>
          <th>Training Goal</th>
+         <th>Start Date</th>
          <th>Target Deadline</th>
          <th>Actual Deadline</th>
          <th>Workout</th>
@@ -21,6 +22,7 @@
       {{#each training}}
       <tr>
          <td><a class="tag" href="/training/{{_id}}">{{trainingGoal}}</a></td>
+         <td>{{formatDate startDate 'MMMM Do, h:mm a'}}</td>
          <td>{{formatDate targetDeadline 'MMMM Do, h:mm a'}}</td>
          <td>{{formatDate actualDeadline 'MMMM Do, h:mm a'}}</td>
          <td><span class="dash-mod">{{workoutName}}</span></td>
