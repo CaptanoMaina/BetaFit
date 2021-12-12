@@ -11,7 +11,9 @@
          <th>Training Goal</th>
          <th>Target Deadline</th>
          <th>Actual Deadline</th>
-         <th>Workout Name</th>
+         <th>Workout</th>
+         <th>Training Status</th>
+
          <th></th>
       </tr>
    </thead>
@@ -22,6 +24,7 @@
          <td>{{formatDate targetDeadline 'MMMM Do, h:mm a'}}</td>
          <td>{{formatDate actualDeadline 'MMMM Do, h:mm a'}}</td>
          <td><span class="dash-mod">{{workoutName}}</span></td>
+         <td><span class="dash-mod">{{trainingStatus}}</span></td>
          <td>
             <a href="/training/edit/{{_id}}" class="waves-effect waves-purple btn-flat">
             <i class="tiny material-icons">edit</i>
