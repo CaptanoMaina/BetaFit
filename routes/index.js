@@ -23,4 +23,20 @@ router.get("/dashboard", checkAuth, async (req, res) => {
   }
 });
 
+router.get("/active", checkAuth, async (req, res) => {
+  try {
+    const training = await Training.find({
+      user: req.user.id,
+      cwStatus: "Active",
+    }).lean();
+    res.render("active", {
+      name: req.user.firstName,
+      training,
+    });
+  } catch (err) {
+    console.error(err);
+    res.render("error/500");
+  }
+});
+
 module.exports = router;
