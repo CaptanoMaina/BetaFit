@@ -99,6 +99,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // Routes
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
+app.use("/training", require("./routes/betaFitRoutes"));
 
 const PORT = process.env.PORT || 3000;
 
