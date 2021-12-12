@@ -1,0 +1,45 @@
+
+
+<h3>Hi {{name}}!</h3>
+{{#if training}}
+<table class="highlight">
+   <thead>
+      <div class="row col sm5">
+         <a href="/dashboard" class="btn purple">View All</a>
+      </div>
+      <tr>
+         <th>Training Goal</th>
+         <th>Target Deadline</th>
+         <th>Actual Deadline</th>
+         <th>Workout Name</th>
+         <th></th>
+      </tr>
+   </thead>
+   <tbody>
+      {{#each training}}
+      <tr>
+         <td><a href="/training/{{_id}}">{{cwTitle}}</a></td>
+         <td>{{formatDate targetDeadline 'MMMM Do, h:mm a'}}</td>
+         <td>{{formatDate actualDeadline 'MMMM Do, h:mm a'}}</td>
+         <td><span class="dash-mod">{{modName}}</span></td>
+         <td>
+            <a href="/training/edit/{{_id}}" class="waves-effect waves-purple btn-flat">
+            <i class="tiny material-icons">edit</i>
+            </a>
+         </td>
+         <td>
+            <form action="/training/{{_id}}" method="POST" id="delete-form">
+               <input type="hidden" name="_method" value="DELETE">
+               <button type="submit" class="waves-effect waves-purple btn-flat">
+               <i class="tiny material-icons">delete</i>
+               </button>
+            </form>
+         </td>
+      </tr>
+      {{/each}}
+   </tbody>
+</table>
+{{else}}
+<p>You do not have any active training goal.</p>
+{{/if}}
+
