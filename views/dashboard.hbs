@@ -18,10 +18,10 @@
    <tbody>
       {{#each training}}
       <tr>
-         <td><a class="tag" href="/training/{{_id}}">{{cwTitle}}</a></td>
+         <td><a class="tag" href="/training/{{_id}}">{{trainingGoal}}</a></td>
          <td>{{formatDate targetDeadline 'MMMM Do, h:mm a'}}</td>
          <td>{{formatDate actualDeadline 'MMMM Do, h:mm a'}}</td>
-         <td><span class="dash-mod">{{modName}}</span></td>
+         <td><span class="dash-mod">{{workoutName}}</span></td>
          <td>
             <a href="/training/edit/{{_id}}" class="waves-effect waves-purple btn-flat">
             <i class="tiny material-icons">edit</i>
