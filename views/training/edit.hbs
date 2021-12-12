@@ -2,7 +2,7 @@
 
 <h3>Edit Training Goal</h3>
 <div class="row">
-   <form action="/trainings/{{training._id}}" method="POST" class="col s12">
+   <form action="/training/{{training._id}}" method="POST" class="col s12">
       <input type="hidden" name="_method" value="PUT">
       <div class="input-field col s12">
          <input type="text" id="title" name="title" value="{{training.cwTitle}}">
@@ -11,11 +11,11 @@
       <div class="input-field col s12">
          <select id="difficulty" name="difficulty">
             {{#select training.difficulty}}
-            <option value="Level 1" selected>Beginner</option>
-            <option value="Level 1">Beginner</option>
-            <option value="Level 2">Advanced</option>
-            <option value="Level 3">Expert</option>
-            <option value="Level 4">Insane</option>
+            <option value="Beginner" selected>Beginner</option>
+            <option value="Beginner">Beginner</option>
+            <option value="Advanced">Advanced</option>
+            <option value="Expert">Expert</option>
+            <option value="Insane">Insane</option>
             {{/select}}
          </select>
          <label for="difficulty">Workout Level</label>
@@ -47,7 +47,7 @@
       <div class="input-field col s12">
          <select id="trainingStatus" name="trainingStatus">
             {{#select training.trainingStatus}}
-            <option value="Active">Active</option>
+            <option value="Incomplete">Incomplete</option>
             <option value="Completed">Completed</option>
             {{/select}}
          </select>
