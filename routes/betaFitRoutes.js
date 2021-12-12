@@ -1,19 +1,19 @@
 const express = require("express");
 const shortId = require("shortid");
 const router = express.Router();
-const { ensureAuth } = require("../middleware/auth");
+const { checkAuth } = require("../middleware/auth");
 const path = require("path");
 const Training = require("../models/Training");
 
 // @desc    Show add page
 // @route   GET /training/add
-router.get("/add", ensureAuth, (req, res) => {
+router.get("/add", checkAuth, (req, res) => {
   res.render("training/add");
 });
 
 // @desc    Process add form
 // @route   POST /training
-router.post("/", ensureAuth, async (req, res) => {
+router.post("/", checkAuth, async (req, res) => {
   try {
     req.body.user = req.user.id;
     await Training.create(req.body);
@@ -26,7 +26,7 @@ router.post("/", ensureAuth, async (req, res) => {
 
 // @desc    Show all training
 // @route   GET /training
-router.get("/", ensureAuth, async (req, res) => {
+router.get("/", checkAuth, async (req, res) => {
   try {
     const training = await Training.find()
       .populate("user")
@@ -44,7 +44,7 @@ router.get("/", ensureAuth, async (req, res) => {
 
 // @desc    Show single training
 // @route   GET /training/:id
-router.get("/:id", ensureAuth, async (req, res) => {
+router.get("/:id", checkAuth, async (req, res) => {
   try {
     let training = await Training.findById(req.params.id)
       .populate("user")
@@ -69,7 +69,7 @@ router.get("/:id", ensureAuth, async (req, res) => {
 
 // @desc    Show edit page
 // @route   GET /training/edit/:id
-router.get("/edit/:id", ensureAuth, async (req, res) => {
+router.get("/edit/:id", checkAuth, async (req, res) => {
   try {
     const training = await Training.findOne({
       _id: req.params.id,
@@ -94,7 +94,7 @@ router.get("/edit/:id", ensureAuth, async (req, res) => {
 
 // @desc    Update training
 // @route   PUT /training/:id
-router.put("/:id", ensureAuth, async (req, res) => {
+router.put("/:id", checkAuth, async (req, res) => {
   try {
     let training = await Training.findById(req.params.id).lean();
 
@@ -124,7 +124,7 @@ router.put("/:id", ensureAuth, async (req, res) => {
 
 // @desc    Delete training
 // @route   DELETE /training/:id
-router.delete("/:id", ensureAuth, async (req, res) => {
+router.delete("/:id", checkAuth, async (req, res) => {
   try {
     let training = await Training.findById(req.params.id).lean();
 
