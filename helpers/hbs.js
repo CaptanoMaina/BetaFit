@@ -20,9 +20,9 @@ module.exports = {
   editIcon: function (trainingUser, loggedUser, trainingID, floating = true) {
     if (trainingUser._id.toString() == loggedUser._id.toString()) {
       if (floating) {
-        return `<a href="/trainings/edit/${trainingID}" class="btn-flat"><i class="small material-icons">edit</i></a>`;
+        return `<a href="/training/edit/${trainingID}" class="btn-flat"><i class="small material-icons">edit</i></a>`;
       } else {
-        return `<a href="/trainings/edit/${trainingID}"><i class="small material-icons">edit</i></a>`;
+        return `<a href="/training/edit/${trainingID}"><i class="small material-icons">edit</i></a>`;
       }
     } else {
       return "";
