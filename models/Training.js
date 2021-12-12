@@ -12,7 +12,7 @@ const TrainingSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  WorkoutName: {
+  workoutName: {
     type: String,
     required: true,
     trim: true,
